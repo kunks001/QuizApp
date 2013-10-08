@@ -1,5 +1,6 @@
 QuizApp::Application.routes.draw do
-  get "quizzes/new"
+  root  'static_pages#home'
+  match '/new_quiz',  to: 'quizzes#new',            via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
