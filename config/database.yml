@@ -16,10 +16,11 @@
 #
 development:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: QuizApp_development
   pool: 5
-  username: QuizApp
+  username:
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,13 +49,14 @@ test:
   encoding: unicode
   database: QuizApp_test
   pool: 5
-  username: QuizApp
+  username:
   password:
+  host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
   database: QuizApp_production
   pool: 5
-  username: QuizApp
+  username:
   password:

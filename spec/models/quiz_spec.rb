@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Quiz do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @quiz = Quiz.new(title: makers_quiz)
+  end
+
+  subject { @quiz }
+
+  it { should respond_to(:title) }
 end
