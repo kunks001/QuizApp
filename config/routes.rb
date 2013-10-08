@@ -2,6 +2,7 @@ QuizApp::Application.routes.draw do
   root  'static_pages#home'
 
   resources :quizzes
+
   # , only: [:create, :new, :index]
 
   match '/new_quiz',    to: 'quizzes#new',          via: 'get'
