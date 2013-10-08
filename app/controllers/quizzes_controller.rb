@@ -5,7 +5,7 @@ class QuizzesController < ApplicationController
 
   def create
   	@quiz = Quiz.create(params[:quiz].permit(:title))
-  	redirect_to "static_pages#home"
+  	redirect_to quizzes_path
   end
 
   def index
