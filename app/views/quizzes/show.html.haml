@@ -1,5 +1,11 @@
 %h1
 	= @quiz.title
 
-	= @questions.each do |question|
-		= question.query
+= @questions.each do |question|
+	= question.query
+
+= link_to "Edit", edit_quiz_path(@quiz)
+= link_to "Destroy", @quiz, data: { confirm: 'Are you sure?' }, :method => :delete
+= link_to "View all", quizzes_path
+
+
