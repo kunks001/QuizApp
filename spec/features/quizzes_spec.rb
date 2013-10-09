@@ -39,8 +39,6 @@ describe "QuizPages" do
     before do
       @question = Question.create(query: 'Why?')
       @quiz = Quiz.create(title: "Quiz", questions: [@question])
-      # page.driver.post "/quizzes/#{@quiz.id}", {"_method" => "patch", quiz: {title: "ABC", questions_attributes: { "0" => {query: "When?", id: "1"}}}, commit: "Submit", action: "update", controller: "quizzes", id: "1" }
-
     end
 
     it 'can update the quiz' do
@@ -48,9 +46,9 @@ describe "QuizPages" do
       fill_in 'quiz[questions_attributes][0][query]', with: 'ABCDEF'
       click_button 'Submit'
 
-      expect(@quiz.questions.second.query).to eq 'ABCDEF'
+      expect(page).to have_content "ABCDEF"
+      # expect(@quiz.questions.first.query).to eq 'ABCDEF'
     end
-
   end
 
 end
