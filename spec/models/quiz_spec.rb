@@ -9,4 +9,5 @@ describe Quiz do
   subject { @quiz }
 
   it { should respond_to(:title) }
+  it { should have_many(:questions) }
 end
