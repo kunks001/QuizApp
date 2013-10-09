@@ -4,7 +4,6 @@
 = form_for @quiz do |f|
   / = f.error_messages
   = f.text_field :title, placeholder: 'Your title here'
-  = f.submit
 
   = f.fields_for :questions do |builder|
     = builder.label :query, "Question"

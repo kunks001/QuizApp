@@ -1,7 +1,7 @@
 %h1
 	= @quiz.title
 
-= @questions.each do |question|
+- @questions.each do |question|
 	= question.query
 
 = link_to "Edit", edit_quiz_path(@quiz)

@@ -25,8 +25,10 @@ class QuizzesController < ApplicationController
   end
 
   def update
-  	if @quiz.update_attributes(params[:quiz].permit(:title, :questions))
-      flash[:success] = "Profile updated"
+  	@quiz = Quiz.find(params[:id])
+
+  	if @quiz.update(params[:quiz].permit(:title, questions_attributes: [:id, :query]))
+      # flash[:success] = "Profile updated"
       redirect_to @quiz
     else
       render 'edit'
