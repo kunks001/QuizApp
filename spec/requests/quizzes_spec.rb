@@ -23,5 +23,4 @@ describe "Quizzes" do
 	 	end
 	end
 
-
 end
