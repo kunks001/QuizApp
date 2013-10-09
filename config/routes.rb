@@ -3,6 +3,7 @@ QuizApp::Application.routes.draw do
   root  'static_pages#home'
 
   resources :quizzes
+  resources :questions
 
   # , only: [:create, :new, :index]
 

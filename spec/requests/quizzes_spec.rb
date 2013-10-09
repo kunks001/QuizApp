@@ -12,11 +12,16 @@ describe "Quizzes" do
   describe "GET /quizzes/new" do
   	before { visit "/quizzes/new" }
 
+  	before do 
+			fill_in "quiz[title]", with: "makers_quiz"
+   		click_button "Create Quiz"
+	  end
+
   	describe "when creating a new quiz" do
-	   	before do 
-				fill_in "quiz[title]", with: "makers_quiz"
-	   		click_button "Create Quiz"
-	   	end
+	   # 	before do 
+				# fill_in "quiz[title]", with: "makers_quiz"
+	   # 		click_button "Create Quiz"
+	   # 	end
 
 	   	it { should have_content('Quizzes') }
 	   	it { should have_content("makers_quiz") }
