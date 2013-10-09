@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
   def new
   	@quiz = Quiz.new
+  	3.times { @quiz.questions.build }
   end
 
   def create
@@ -14,7 +15,6 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
+    @questions = @quiz.questions
   end
-
-
 end

@@ -1,2 +1,5 @@
 %h1
 	= @quiz.title
+
+	= @questions.each do |question|
+		= question.query

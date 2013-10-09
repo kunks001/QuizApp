@@ -24,11 +24,13 @@ describe "QuizPages" do
   describe 'show' do
 
   	before do
-  		Quiz.create(title: "Quiz")
+      question = Question.create(query: 'Why?')
+  		Quiz.create(title: "Quiz", questions: [question])
 			visit quizzes_path
 			click_link "Quiz"
 		end
 
-		it {should have_content("Quiz") }
+		it { should have_content("Quiz") }
+    it { should have_content("Why?") }
 	end
 end
