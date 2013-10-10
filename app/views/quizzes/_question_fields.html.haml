@@ -2,3 +2,6 @@
 = f.text_area :query, :rows => 3
 = f.label :_destroy, "Remove Question"
 = f.check_box :_destroy
+
+= f.fields_for :answers do |builder|
+  = render 'answer_fields', :f => builder

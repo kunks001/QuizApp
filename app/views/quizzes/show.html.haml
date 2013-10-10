@@ -3,6 +3,8 @@
 
 - @questions.each do |question|
 	= question.query
+	- question.answers.each do |answer|
+		= answer.response
 
 = link_to "Edit", edit_quiz_path(@quiz)
 = link_to "Destroy", @quiz, data: { confirm: 'Are you sure?' }, :method => :delete

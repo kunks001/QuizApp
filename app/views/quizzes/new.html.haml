@@ -1,12 +1,14 @@
 %h1 Quizzes#new
 %p Find me in app/views/quizzes/new.html.erb
 
-= form_for @quiz do |f|
-  / = f.error_messages
-  = f.text_field :title, placeholder: 'Your title here'
+= render 'form'
 
-  = f.fields_for :questions do |builder|
-    = builder.label :query, "Question"
-    = builder.text_area :query, :rows => 3
+/ = form_for @quiz do |f|
+/   / = f.error_messages
+/   = f.text_field :title, placeholder: 'Your title here'
 
-  = f.submit "Submit"
+/   = f.fields_for :questions do |builder|
+/     = builder.label :query, "Question"
+/     = builder.text_area :query, :rows => 3
+
+/   = f.submit "Submit"

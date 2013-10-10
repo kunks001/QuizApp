@@ -1,13 +1,1 @@
 = render 'form'
-
-/ = form_for @quiz do |f|
-/   / = f.error_messages
-/   = f.text_field :title, placeholder: 'Your title here'
-
-/   = f.fields_for :questions do |builder|
-/     = builder.label :query, "Question"
-/     = builder.text_area :query, :rows => 3
-/     = builder.label :_destroy, "Remove Question"
-/     = builder.check_box :_destroy
-
-/   = f.submit "Submit"

@@ -1,12 +1,15 @@
 class QuizzesController < ApplicationController
   def new
   	@quiz = Quiz.new
-  	3.times { @quiz.questions.build }
+  	3.times do
+      question = @quiz.questions.build
+      4.times { question.answers.build }
+    end
   end
 
   def create
   	# raise params.inspect
-  	@quiz = Quiz.create(params[:quiz].permit(:title, questions_attributes: [:id, :query]))
+  	@quiz = Quiz.create(params[:quiz].permit(:title, questions_attributes: [:id, :query, answers_attributes: [:id, :response]]))
   	redirect_to quizzes_path
   end
 
@@ -43,6 +46,6 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, questions_attributes: [:id, :quiz_id, :query, :_destroy])
+    params.require(:quiz).permit(:title, questions_attributes: [:id, :quiz_id, :query, :_destroy, answers_attributes: [:id, :question_id, :response, :_destroy]])
   end
 end
