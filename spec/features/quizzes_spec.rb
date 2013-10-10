@@ -74,19 +74,17 @@ describe "QuizPages" do
       expect(page).to have_content 'Quiz'
     end
 
-    it 'can delete a question' do
-      within '.question' do
-        click_link_or_button 'remove_question'
-      end
+    it 'can delete a question', js: true do
+      # raise page.html
+      click_link 'Remove question'
+
       click_button 'Submit'
 
       expect(page).to_not have_content "Why?"
     end
 
-    it 'can delete an answer' do
-      within '.answer' do
-        click_link_or_button 'remove_answer'
-      end
+    it 'can delete an answer', js: true do
+      click_link 'Remove'
       click_button 'Submit'
 
       expect(page).to_not have_content "No idea"
