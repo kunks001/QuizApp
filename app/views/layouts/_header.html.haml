@@ -1,1 +1,9 @@
 %header
+  = link_to "Home_image", root_path, id: "logo"
+  = link_to "Home", root_path
+  - if signed_in?
+    = link_to "Users", '#'
+    = link_to "Profile", current_user
+    = link_to "Sign out", signout_path, method: "delete"
+  - else
+    = link_to "Sign in", signin_path
