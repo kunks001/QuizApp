@@ -1,4 +1,10 @@
-= f.label :response, "Answer"
-= f.text_area :response
-= f.label :_destroy, "Remove"
-= f.check_box :_destroy
+.answer
+  = f.label :response, "Answer"
+  = f.text_area :response
+  /  = f.label :_destroy, "Remove"
+  /  = f.check_box :_destroy, id: "delete_answer"
+
+  = f.hidden_field :_destroy
+  = link_to "Remove", "#", class: "remove_answer", name: "remove_answer", id: "remove_answer"
+
+

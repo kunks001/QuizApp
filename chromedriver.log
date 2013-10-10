@@ -1,0 +1,148 @@
+[0.012][INFO]:      ChromeDriver 26.0.1383.0 /usr/local/bin/chromedriver
+[0.182][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "cssSelectorsEnabled": true,
+   "javascriptEnabled": true,
+   "nativeEvents": false,
+   "platform": "ANY",
+   "rotatable": false,
+   "takesScreenshot": false,
+   "version": ""
+}
+
+[0.182][INFO]:      Launching chrome: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --use-mock-keychain --ignore-certificate-errors about:blank
+[5.568][INFO]:      Connected to Chrome successfully. Version: 30.0.1599.69
+[5.593][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f)
+[5.593][FINE]:      Command finished (/session/445e106db93c87082adc0080a258412f) with response {
+   "sessionId": "445e106db93c87082adc0080a258412f",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "mac",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "30.0.1599.69",
+      "webStorageEnabled": true
+   }
+}
+
+[5.616][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "http://127.0.0.1:65005/quizzes/3/edit"
+}
+
+[5.616][FINER]:     Waiting for all views to stop loading...
+[5.616][FINER]:     Done waiting for all views to stop loading
+[5.618][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.618][FINER]:     Waiting for all views to stop loading...
+[5.619][FINER]:     Done waiting for all views to stop loading
+[5.620][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.620][FINER]:     Waiting for all views to stop loading...
+[5.621][FINER]:     Done waiting for all views to stop loading
+[5.636][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "http://127.0.0.1:65005/quizzes/4/edit"
+}
+
+[5.636][FINER]:     Waiting for all views to stop loading...
+[5.637][FINER]:     Done waiting for all views to stop loading
+[5.638][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.638][FINER]:     Waiting for all views to stop loading...
+[5.638][FINER]:     Done waiting for all views to stop loading
+[5.640][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.640][FINER]:     Waiting for all views to stop loading...
+[5.640][FINER]:     Done waiting for all views to stop loading
+[5.652][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "http://127.0.0.1:65005/quizzes/5/edit"
+}
+
+[5.652][FINER]:     Waiting for all views to stop loading...
+[5.653][FINER]:     Done waiting for all views to stop loading
+[5.654][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.654][FINER]:     Waiting for all views to stop loading...
+[5.654][FINER]:     Done waiting for all views to stop loading
+[5.655][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.655][FINER]:     Waiting for all views to stop loading...
+[5.656][FINER]:     Done waiting for all views to stop loading
+[5.660][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "http://127.0.0.1:65005/quizzes"
+}
+
+[5.660][FINER]:     Waiting for all views to stop loading...
+[5.661][FINER]:     Done waiting for all views to stop loading
+[5.662][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.662][FINER]:     Waiting for all views to stop loading...
+[5.663][FINER]:     Done waiting for all views to stop loading
+[5.665][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.665][FINER]:     Waiting for all views to stop loading...
+[5.666][FINER]:     Done waiting for all views to stop loading
+[5.674][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "http://127.0.0.1:65005/quizzes/new"
+}
+
+[5.674][FINER]:     Waiting for all views to stop loading...
+[5.675][FINER]:     Done waiting for all views to stop loading
+[5.677][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.677][FINER]:     Waiting for all views to stop loading...
+[5.678][FINER]:     Done waiting for all views to stop loading
+[5.680][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.680][FINER]:     Waiting for all views to stop loading...
+[5.680][FINER]:     Done waiting for all views to stop loading
+[5.737][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "http://127.0.0.1:65005/quizzes/new"
+}
+
+[5.737][FINER]:     Waiting for all views to stop loading...
+[5.764][FINER]:     Done waiting for all views to stop loading
+[5.765][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.765][FINER]:     Waiting for all views to stop loading...
+[5.765][FINER]:     Done waiting for all views to stop loading
+[5.767][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.767][FINER]:     Waiting for all views to stop loading...
+[5.767][FINER]:     Done waiting for all views to stop loading
+[5.773][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.773][FINER]:     Waiting for all views to stop loading...
+[5.774][FINER]:     Done waiting for all views to stop loading
+[5.775][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.775][FINER]:     Waiting for all views to stop loading...
+[5.775][FINER]:     Done waiting for all views to stop loading
+[5.778][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/cookie)
+[5.778][FINER]:     Waiting for all views to stop loading...
+[5.779][FINER]:     Done waiting for all views to stop loading
+[5.780][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f/url) with params {
+   "url": "about:blank"
+}
+
+[5.780][FINER]:     Waiting for all views to stop loading...
+[5.780][FINER]:     Done waiting for all views to stop loading
+[5.795][FINE]:      Command received (/session/445e106db93c87082adc0080a258412f)
+[5.963][INFO]:      Chrome shutdown

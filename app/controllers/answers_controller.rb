@@ -16,5 +16,3 @@ class AnswersController < ApplicationController
 		@answer = Answer.find(params[:id])
 	end
 end
-
-end

@@ -1,4 +1,4 @@
 %h1 Quizzes
 
 - @quiz.each do |quiz|
-  = link_to quiz.title, quiz
+  = link_to quiz.title, quiz, id: quiz.id, name: quiz.id

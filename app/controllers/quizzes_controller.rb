@@ -8,8 +8,8 @@ class QuizzesController < ApplicationController
   end
 
   def create
-  	# raise params.inspect
-  	@quiz = Quiz.create(params[:quiz].permit(:title, questions_attributes: [:id, :query, answers_attributes: [:id, :response]]))
+  	@quiz = Quiz.create(params[:quiz].permit(:title, 
+            questions_attributes: [:id, :query, answers_attributes: [:id, :response]]))
   	redirect_to quizzes_path
   end
 
@@ -28,8 +28,6 @@ class QuizzesController < ApplicationController
   end
 
   def update
-        # raise params.inspect
-
   	@quiz = Quiz.find(params[:id])
 
   	if @quiz.update(quiz_params)
@@ -46,6 +44,9 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:title, questions_attributes: [:id, :quiz_id, :query, :_destroy, answers_attributes: [:id, :question_id, :response, :_destroy]])
+    params.require(:quiz).permit(:title, 
+      questions_attributes: [:id, :quiz_id, :query, :_destroy, 
+        answers_attributes: [:id, :question_id, :response, :_destroy]])
   end
+
 end

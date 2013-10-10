@@ -37,10 +37,13 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
+  gem 'selenium-webdriver'
   gem "factory_girl_rails", "~> 4.0"
   gem 'guard'
   gem 'guard-rspec'
   gem 'shoulda-matchers'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password

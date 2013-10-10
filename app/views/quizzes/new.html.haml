@@ -2,13 +2,3 @@
 %p Find me in app/views/quizzes/new.html.erb
 
 = render 'form'
-
-/ = form_for @quiz do |f|
-/   / = f.error_messages
-/   = f.text_field :title, placeholder: 'Your title here'
-
-/   = f.fields_for :questions do |builder|
-/     = builder.label :query, "Question"
-/     = builder.text_area :query, :rows => 3
-
-/   = f.submit "Submit"
