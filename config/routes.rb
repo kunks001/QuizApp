@@ -1,9 +1,13 @@
 QuizApp::Application.routes.draw do
+  get "users/new"
   get "static_pages/home"
   root  'static_pages#home'
 
   resources :quizzes
   resources :questions
+  resources :users
+
+  match '/signup',  to: 'users#new',            via: 'get'
 
   # , only: [:create, :new, :index]
 
