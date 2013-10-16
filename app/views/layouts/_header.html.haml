@@ -2,7 +2,7 @@
   = link_to "Home_image", root_path, id: "logo"
   = link_to "Home", root_path
   - if signed_in?
-    = link_to "Users", '#'
+    = link_to "Users", users_path
     = link_to "Profile", current_user
     = link_to "Settings", edit_user_path(current_user)
     = link_to "Sign out", signout_path, method: "delete"
