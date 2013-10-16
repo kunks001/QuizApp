@@ -1,4 +1,11 @@
 class QuizzesController < ApplicationController
+
+  before_action :signed_in_user, only: [:new, :edit, :update]
+
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
   def new
   	@quiz = Quiz.new
   	3.times do

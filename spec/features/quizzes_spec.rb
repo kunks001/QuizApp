@@ -9,85 +9,96 @@ describe "QuizPages" do
     it { should have_content('Quizzes') }
   end
 
-  describe 'new' do
-    before do 
-      visit "/quizzes/new"
-
-      fill_in "quiz[title]", with: "makers_quiz"
-      fill_in "quiz[questions_attributes][0][query]", with: "Why so many bugs?"
-      fill_in "quiz[questions_attributes][0][answers_attributes][0][response]", with: "absolutely no idea"
-      click_button "Submit"
-    end
-
-    describe "when creating a new quiz" do
-     	it { should have_content('Quizzes') }
-     	it { should have_content("makers_quiz") }
-    end
-
-    describe "when creating quiz questions and answers" do
-      before { click_link "#{Quiz.last.id}" }
-
-      it 'should have the correct questions and answers' do
-        expect(page).to have_content("Why so many bugs?")
-        expect(page).to have_content("absolutely no idea")
-      end
-   	end
-  end
-
-  describe 'show' do
-
-  	before do
-      question = Question.create(query: 'Why?')
-  		Quiz.create(title: "Quiz", questions: [question])
-			visit quizzes_path
-			click_link "Quiz"
-		end
-
-		it { should have_content("Quiz") }
-    it { should have_content("Why?") }
-	end
-
-  describe 'edit' do
-
+  describe "when signed in" do
+    let(:user) { FactoryGirl.create(:user) }
+    
     before do
-      @answer = Answer.create(response: 'No idea')
-      @question = Question.create(query: 'Why?', answers: [@answer])
-      @quiz = Quiz.create(title: "Quiz", questions: [@question])
-      visit edit_quiz_path(@quiz)
+      visit signin_path
+      fill_in "Email",    with: user.email.upcase
+      fill_in "Password", with: user.password
+      click_button "Sign in"
     end
 
-    it 'can update the quiz' do
-      fill_in 'quiz[title]', with: 'XYZ'
-      fill_in 'quiz[questions_attributes][0][query]', with: 'ABCDEF'
-      fill_in "quiz[questions_attributes][0][answers_attributes][0][response]", with: "yes"
-      click_button 'Submit'
+    describe 'new' do
+      before do 
+        visit "/quizzes/new"
 
-      expect(page).to have_content "XYZ"
-      expect(page).to have_content "ABCDEF"
-      expect(page).to have_content "yes"
+        fill_in "quiz[title]", with: "makers_quiz"
+        fill_in "quiz[questions_attributes][0][query]", with: "Why so many bugs?"
+        fill_in "quiz[questions_attributes][0][answers_attributes][0][response]", with: "absolutely no idea"
+        click_button "Submit"
+      end
+
+      describe "when creating a new quiz" do
+       	it { should have_content('Quizzes') }
+       	it { should have_content("makers_quiz") }
+      end
+
+      describe "when creating quiz questions and answers" do
+        before { click_link "#{Quiz.last.id}" }
+
+        it 'should have the correct questions and answers' do
+          expect(page).to have_content("Why so many bugs?")
+          expect(page).to have_content("absolutely no idea")
+        end
+     	end
     end
 
-    it 'can delete the quiz', js: true do
-      visit quiz_path(@quiz)
-      click_link_or_button 'delete_quiz'
+    describe 'show' do
 
-      expect(page).to have_content 'Quiz'
-    end
+    	before do
+        question = Question.create(query: 'Why?')
+    		Quiz.create(title: "Quiz", questions: [question])
+  			visit quizzes_path
+  			click_link "Quiz"
+  		end
 
-    it 'can delete a question', js: true do
-      # raise page.html
-      click_link 'Remove question'
+  		it { should have_content("Quiz") }
+      it { should have_content("Why?") }
+  	end
 
-      click_button 'Submit'
+    describe 'edit' do
 
-      expect(page).to_not have_content "Why?"
-    end
+      before do
+        @answer = Answer.create(response: 'No idea')
+        @question = Question.create(query: 'Why?', answers: [@answer])
+        @quiz = Quiz.create(title: "Quiz", questions: [@question])
+        visit edit_quiz_path(@quiz)
+      end
 
-    it 'can delete an answer', js: true do
-      click_link 'Remove'
-      click_button 'Submit'
+      it 'can update the quiz' do
+        fill_in 'quiz[title]', with: 'XYZ'
+        fill_in 'quiz[questions_attributes][0][query]', with: 'ABCDEF'
+        fill_in "quiz[questions_attributes][0][answers_attributes][0][response]", with: "yes"
+        click_button 'Submit'
 
-      expect(page).to_not have_content "No idea"
+        expect(page).to have_content "XYZ"
+        expect(page).to have_content "ABCDEF"
+        expect(page).to have_content "yes"
+      end
+
+      it 'can delete the quiz', js: true do
+        visit quiz_path(@quiz)
+        click_link_or_button 'delete_quiz'
+
+        expect(page).to have_content 'Quiz'
+      end
+
+      it 'can delete a question', js: true do
+        # raise page.html
+        click_link 'Remove question'
+
+        click_button 'Submit'
+
+        expect(page).to_not have_content "Why?"
+      end
+
+      it 'can delete an answer', js: true do
+        click_link 'Remove'
+        click_button 'Submit'
+
+        expect(page).to_not have_content "No idea"
+      end
     end
   end
 end
