@@ -19,7 +19,7 @@ describe "QuizPages" do
       click_button "Sign in"
     end
 
-    describe 'new' do
+    describe 'and creating a new' do
       before do 
         visit "/quizzes/new"
 
@@ -29,12 +29,12 @@ describe "QuizPages" do
         click_button "Submit"
       end
 
-      describe "when creating a new quiz" do
+      describe "quiz" do
        	it { should have_content('Quizzes') }
        	it { should have_content("makers_quiz") }
       end
 
-      describe "when creating quiz questions and answers" do
+      describe "quiz's questions and answers" do
         before { click_link "#{Quiz.last.id}" }
 
         it 'should have the correct questions and answers' do
@@ -44,7 +44,7 @@ describe "QuizPages" do
      	end
     end
 
-    describe 'show' do
+    describe 'the show page' do
 
     	before do
         question = Question.create(query: 'Why?')
@@ -57,7 +57,7 @@ describe "QuizPages" do
       it { should have_content("Why?") }
   	end
 
-    describe 'edit' do
+    describe 'the edit page' do
 
       before do
         @answer = Answer.create(response: 'No idea')
