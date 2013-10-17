@@ -48,7 +48,7 @@ describe "QuizPages" do
   describe "after making a quiz" do
 
     let!(:user) { FactoryGirl.create(:user) }
-    let!(:quiz) { FactoryGirl.create(:quiz, user: user, title: "Quiz1") }
+    let!(:quiz) { FactoryGirl.create(:quiz, user: user) }
 
     before do
       sign_in(user)
@@ -56,12 +56,11 @@ describe "QuizPages" do
 
     describe 'the show page' do
     	before do
-  			visit quizzes_path
-  			click_link "Quiz1"
+  			visit quiz_path(quiz)
   		end
 
-  		it { should have_content("Quiz") }
-      it { should have_content("WHY?") }
+  		it { expect(page).to have_content("Quiz 1") }
+      it { expect(page).to have_content("question 2") }
   	end
 
     describe 'the edit page' do
@@ -81,14 +80,14 @@ describe "QuizPages" do
         visit quiz_path(quiz)
         click_link_or_button 'delete_quiz'
 
-        expect(page).to_not have_content 'Quiz1'
+        expect(page).to_not have_content 'Quiz 1'
       end
 
       it 'can delete a question', js: true do
         click_link 'Remove question'
         click_button 'Submit'
 
-        expect(page).to_not have_content "WHY?"
+        expect(page).to_not have_content "question 2"
       end
 
       it 'can delete an answer', js: true do
