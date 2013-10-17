@@ -1,5 +1,4 @@
 class QuizzesController < ApplicationController
-
   before_action :signed_in_user, only: [:new, :edit, :update]
 
   def signed_in_user
@@ -15,9 +14,13 @@ class QuizzesController < ApplicationController
   end
 
   def create
-  	@quiz = Quiz.create(params[:quiz].permit(:title, 
+  	@quiz = current_user.quizzes.build(params[:quiz].permit(:title, 
             questions_attributes: [:id, :query, answers_attributes: [:id, :response]]))
-  	redirect_to quizzes_path
+    if @quiz.save
+    	redirect_to quizzes_path
+    else
+      render 'new'
+    end
   end
 
   def index
@@ -25,17 +28,17 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.find(params[:id])
+    @quiz = current_user.quizzes.find(params[:id])
     @questions = @quiz.questions
   end
 
   def edit
-  	@quiz = Quiz.find(params[:id])
+  	@quiz = current_user.quizzes.find(params[:id])
     @questions = @quiz.questions
   end
 
   def update
-  	@quiz = Quiz.find(params[:id])
+  	@quiz = current_user.quizzes.find(params[:id])
 
   	if @quiz.update(quiz_params)
       # flash[:success] = "Profile updated"

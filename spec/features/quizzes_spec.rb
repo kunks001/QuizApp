@@ -43,12 +43,21 @@ describe "QuizPages" do
         end
      	end
     end
+  end
+
+  describe "after making a quiz" do
+
+    let(:user) { FactoryGirl.create(:user) }
+
+    before do
+      sign_in(user)
+      @answer = Answer.create(response: 'No idea')
+      @question = Question.create(query: 'Why?', answers: [@answer])
+      @quiz = Quiz.create!(title: "Quiz", questions: [@question], user: user)
+    end
 
     describe 'the show page' do
-
     	before do
-        question = Question.create(query: 'Why?')
-    		Quiz.create(title: "Quiz", questions: [question])
   			visit quizzes_path
   			click_link "Quiz"
   		end
@@ -58,13 +67,7 @@ describe "QuizPages" do
   	end
 
     describe 'the edit page' do
-
-      before do
-        @answer = Answer.create(response: 'No idea')
-        @question = Question.create(query: 'Why?', answers: [@answer])
-        @quiz = Quiz.create(title: "Quiz", questions: [@question])
-        visit edit_quiz_path(@quiz)
-      end
+      before { visit edit_quiz_path(@quiz) }
 
       it 'can update the quiz' do
         fill_in 'quiz[title]', with: 'XYZ'
@@ -85,9 +88,7 @@ describe "QuizPages" do
       end
 
       it 'can delete a question', js: true do
-        # raise page.html
         click_link 'Remove question'
-
         click_button 'Submit'
 
         expect(page).to_not have_content "Why?"
