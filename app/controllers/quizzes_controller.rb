@@ -15,7 +15,7 @@ class QuizzesController < ApplicationController
 
   def create
   	@quiz = current_user.quizzes.build(params[:quiz].permit(:title, 
-            questions_attributes: [:id, :query, answers_attributes: [:id, :response]]))
+            questions_attributes: [:id, :query, answers_attributes: [:id, :response, :correctness]]))
     if @quiz.save
     	redirect_to quizzes_path
     else
@@ -56,7 +56,7 @@ class QuizzesController < ApplicationController
   def quiz_params
     params.require(:quiz).permit(:title, 
       questions_attributes: [:id, :quiz_id, :query, :_destroy, 
-        answers_attributes: [:id, :question_id, :response, :_destroy]])
+        answers_attributes: [:id, :question_id, :response, :correctness, :_destroy]])
   end
 
 end

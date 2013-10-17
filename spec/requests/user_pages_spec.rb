@@ -130,4 +130,18 @@ describe "User pages" do
       end
     end
   end
+
+  # describe "show" do
+  #   let(:user) { FactoryGirl.create(:user) }
+
+  # SHOW USER QUIZZES IN USER SHOW
+
+  #   before do
+  #     sign_in user
+  #     visit user_path(user)
+  #   end
+
+  #   describe "page" do
+  #     it { should have_content("tester") }
+  #     it
 end
