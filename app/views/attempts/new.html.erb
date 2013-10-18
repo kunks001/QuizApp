@@ -1,0 +1,12 @@
+<%= form_tag quiz_attempts_path do %>
+  <% @quiz.questions.each do |question| %>
+    <%= question.query %>
+    <% question.answers.each do |answer| %>
+      <label>
+        <%= answer.response %>
+        <%= radio_button_tag "answer_ids[#{question.id}]", answer.id %>
+        </label>
+    <% end %>
+  <% end %>
+  <%= submit_tag "Submit" %>
+<% end %>

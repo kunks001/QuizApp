@@ -3,8 +3,12 @@ QuizApp::Application.routes.draw do
   get "static_pages/home"
   root  'static_pages#home'
 
-  resources :quizzes
-  resources :questions
+  resources :quizzes do
+    resources :attempts, only: [:new, :create, :show]
+    # resources :questions
+  end
+
+  # resources :questions
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
