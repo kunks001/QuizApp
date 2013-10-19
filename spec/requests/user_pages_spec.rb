@@ -131,7 +131,7 @@ describe "User pages" do
     end
   end
 
-  # describe "show" do
+  # describe "show" do  
   #   let(:user) { FactoryGirl.create(:user) }
 
   # SHOW USER QUIZZES IN USER SHOW

@@ -1,10 +1,12 @@
 QuizApp::Application.routes.draw do
-  get "users/new"
-  get "static_pages/home"
-  root  'static_pages#home'
+  get "multiplayer_attempts/index" => 'multiplayer_attempts#index'
+  get "users/new" => 'users#new'
+  # get "static_pages/home"
+  root 'static_pages#home'
 
   resources :quizzes do
     resources :attempts, only: [:new, :create, :show]
+    resources :multiplayer_attempts, only: [:new]
     # resources :questions
   end
 
@@ -15,6 +17,7 @@ QuizApp::Application.routes.draw do
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  post '/multiplayer_attempts/check_answer' => 'multiplayer_attempts#check_answer'
 
   # , only: [:create, :new, :index]
 

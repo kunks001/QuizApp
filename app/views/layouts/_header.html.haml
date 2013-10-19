@@ -1,10 +1,53 @@
-%header
-  = link_to "Home_image", root_path, id: "logo"
-  = link_to "Home", root_path
-  - if signed_in?
-    = link_to "Users", users_path
-    = link_to "Profile", current_user
-    = link_to "Settings", edit_user_path(current_user)
-    = link_to "Sign out", signout_path, method: "delete"
-  - else
-    = link_to "Sign in", signin_path
+%header(class="navbar navbar-fixed-top navbar-inverse")
+  .navbar-inner
+    .container
+      = link_to "Quizzes", root_path, id: "logo"
+      %nav
+        %ul(class="nav pull-right")
+          %li
+            = link_to "Home", root_path
+          %li
+            = link_to "Help", '#'
+          - if signed_in?
+            %li
+              = link_to "Users", '#'
+            %li(id="fat-menu" class="dropdown")
+              %a(class="dropdown-toggle" 	data-toggle="dropdown" href="#" )
+                Account 
+                %b(class="caret")
+              %ul(class="dropdown-menu")
+                %li
+                  = link_to "Profile", current_user
+                  = link_to "Settings", '#'
+                %li(class="divider")
+                %li
+                  = link_to "Sign out", signout_path, method: "delete"
+
+          - else
+            %li
+              = link_to "Sign in", signin_path
+
+/ header class="navbar navbar-fixed-top navbar-inverse"
+/   .navbar-inner
+/     .container"
+/       = link_to "Home", 'root_path', id: "logo" 
+/       %nav
+/         %ul(class="nav pull-right")
+/         	%li
+/           	= link_to "Home",    '#' 
+/           %li
+/           	= link_to "Help",    '#' 
+/           %li
+/           	= link_to "Sign in", '#' 
+ 
+
+/ header
+/   = link_to "Home_image", root_path, id: "logo"
+/   = link_to "Home", root_path
+/   - if signed_in?
+/     = link_to "Users", users_path
+/     = link_to "Profile", current_user
+/     = link_to "Settings", edit_user_path(current_user)
+/     = link_to "Sign out", signout_path, method: "delete"
+/   - else
+/     = link_to "Sign in", signin_path
