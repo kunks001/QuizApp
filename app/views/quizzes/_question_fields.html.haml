@@ -2,7 +2,7 @@
   = f.label :query, "Question"
   = f.text_area :query, :rows => 3
   = f.hidden_field :_destroy
-  = link_to "Remove question", "#", class: "remove_question", name: "remove_question", id: "remove_question"
+  = link_to "Remove question", "#", class: "remove_question", name: "remove_question", :"data-no-turbolink"	=> true
 
   = f.fields_for :answers do |builder|
     = render 'answer_fields', :f => builder

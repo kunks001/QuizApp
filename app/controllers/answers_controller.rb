@@ -15,4 +15,12 @@ class AnswersController < ApplicationController
 	def show
 		@answer = Answer.find(params[:id])
 	end
+
+	def destroy
+		Answer.find(params[:id]).destroy
+	end
+
+	def question_params
+    params.require(:answer).permit(:id, :question_id, :response, :_destroy)
+  end
 end

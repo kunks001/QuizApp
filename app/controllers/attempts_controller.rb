@@ -7,7 +7,8 @@ class AttemptsController < ApplicationController
   def create
     @quiz = Quiz.find(params[:quiz_id])
     scorer = Scorer.new(@quiz)
-    render text: "#{scorer.total(params[:answer_ids].values)}%"
+    redirect_to root_path
+    flash[:success] = "#{scorer.total(params[:answer_ids].values)}%"
   end
  
 end

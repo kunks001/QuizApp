@@ -1,13 +1,21 @@
+// $(document).ready(function() {
+//   $(".remove_answer .remove_question").attr('data-no-turbolink', true);
+// });
+
 $(function() {
-  $('.remove_answer').click(function() {
+  $('.remove_answer').click(function(event) {
+  	event.preventDefault();
+  	alert("you sure?");
 	  $(this).prev("input[type=hidden]").val("1");
-	  $(this).closest(".answer").hide();
+	  $(this).parent().hide();
   });
 });
 
 $(function() {
-  $('.remove_question').click(function() {
+  $('.remove_question').click(function(event) {
+  	event.preventDefault();
+  	alert("you sure?");
 	  $(this).prev("input[type=hidden]").val("1");
-	  $(this).closest(".question").hide();
+	  $(this).parent().hide();
   });
 });
