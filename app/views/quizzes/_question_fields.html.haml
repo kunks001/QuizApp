@@ -1,4 +1,7 @@
+= link_to "Hide question", "#", class: "hide_question"
+
 .question
+  %h3{class: "question_number"}
   = f.label :query, "Question"
   = f.text_area :query, :rows => 3
   = f.hidden_field :_destroy

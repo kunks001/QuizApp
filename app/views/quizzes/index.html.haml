@@ -1,5 +1,7 @@
 %h1 Quizzes
 
 - @quiz.each do |quiz|
-  = link_to quiz.title, quiz, id: quiz.id, name: quiz.id
-  = link_to quiz.title, new_quiz_attempt_path(quiz)
+  .quiz_container
+    = link_to quiz.title, quiz, id: quiz.id, name: quiz.id
+    = link_to "Play", new_quiz_attempt_path(quiz)
+    = link_to "Play Multiplayer", new_quiz_multiplayer_attempt_path(quiz)

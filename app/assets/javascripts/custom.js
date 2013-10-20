@@ -19,3 +19,23 @@ $(function() {
 	  $(this).parent().hide();
   });
 });
+
+
+$('.hide_question').click(function(event) { 
+  event.preventDefault();        
+  $(this).next(".question").hide();
+});
+
+
+// $(".add_question").click(function(event){
+//   event.preventDefault(); 
+//   var q = (document).getElementsByClassName("question:first").first(); 
+//   $('#form').appendChild(q);
+// }); 
+
+$(".add_question").click(function(event){
+  event.preventDefault(); 
+  var Target = $('.question:first');
+  var CloneTarget = $(Target).clone();
+  CloneTarget.insertAfter('.question:last');
+});

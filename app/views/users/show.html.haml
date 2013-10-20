@@ -1,1 +1,6 @@
 = @user.name
+
+.quizzes_container
+- @user.quizzes.each do |quiz|
+	.quiz
+		= link_to quiz.title, quiz
