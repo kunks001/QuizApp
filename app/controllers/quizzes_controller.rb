@@ -24,7 +24,7 @@ class QuizzesController < ApplicationController
   end
 
   def index
-  	@quiz = Quiz.all
+  	@quizzes = Quiz.paginate(page: params[:page])
   end
 
   def show

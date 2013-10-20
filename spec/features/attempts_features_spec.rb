@@ -4,7 +4,6 @@ describe "Attempts" do
 	let(:user) { FactoryGirl.create(:user) }
 	let(:quiz) { FactoryGirl.create(:quiz, user: user) }
 
-
 	context 'when taking a quiz' do
 	  before do
 	  	sign_in(user)

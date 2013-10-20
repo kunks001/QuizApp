@@ -99,5 +99,29 @@ describe "QuizPages" do
         expect(page).to_not have_content "No idea"
       end
     end
+
+    describe "pagination" do
+      # let(:user) { FactoryGirl.create(:user)}
+
+      before(:all) do
+        user = FactoryGirl.create(:user)
+        50.times { FactoryGirl.create(:quiz, user: user) }
+        sign_in user
+      end
+
+      after(:all)  { Quiz.delete_all }
+
+      context "on the home page" do
+        before { visit root_path }
+
+        it { expect(page).to have_selector('.pagination') }
+
+        it "should list each quiz" do
+          Quiz.paginate(page: 1).each do |quiz|
+            expect(page).to have_selector('li', text: quiz.title)
+          end
+        end
+      end
+    end
   end
 end

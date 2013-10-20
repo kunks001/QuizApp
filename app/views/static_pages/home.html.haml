@@ -1,7 +1,18 @@
 %h1 StaticPages#home
 %p Find me in app/views/static_pages/home.html.haml
 
-- @quiz.each do |quiz|
-  .quiz_container
-    = link_to quiz.title, quiz, id: quiz.id, name: quiz.id
-    = link_to quiz.title, new_quiz_attempt_path(quiz)
+= will_paginate
+
+%ul.quizzes
+  - @static_pages.each do |quiz|
+    %li
+      .quiz_container
+        = link_to quiz.title, quiz
+        = link_to "Play", new_quiz_attempt_path(quiz)
+
+= will_paginate 
+
+/ - @quiz.each do |quiz|
+/   .quiz_container
+/     = link_to quiz.title, quiz, id: quiz.id, name: quiz.id
+/     = link_to quiz.title, new_quiz_attempt_path(quiz)
