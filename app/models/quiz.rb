@@ -8,12 +8,4 @@ class Quiz < ActiveRecord::Base
 	def correct_answer_ids
     questions.map { |q| q.correct_answer.first.id }
   end
-
-  def answer_ids
-  	answer_ids = []
-  	questions.each do |q|
-  		answer_ids << q.a_ids
-  	end
-  	answer_ids.flatten
-  end
 end

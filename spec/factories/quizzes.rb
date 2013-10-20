@@ -5,7 +5,7 @@ FactoryGirl.define do
 	end
 
   factory :question do
-    sequence(:query){ |n| "question #{n}" }
+    sequence(:query){ |o| "question #{o}" }
     answers { [ create(:correct_answer), 3.times.map { create(:wrong_answer) } ].flatten }
   end
 
@@ -15,7 +15,7 @@ FactoryGirl.define do
   end
 
   factory :wrong_answer, :class => Answer do
-    sequence(:response){ |n| "wrong answer #{n}" }
+    sequence(:response){ |p| "wrong answer #{p}" }
     correctness false
   end
 end

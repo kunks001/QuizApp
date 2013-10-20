@@ -59,8 +59,10 @@ describe "QuizPages" do
   			visit quiz_path(quiz)
   		end
 
-  		it { expect(page).to have_content("Quiz 1") }
-      it { expect(page).to have_content("question 2") }
+  		it "should show the quiz's name and questions" do
+        expect(page).to have_content("Quiz 2")
+        expect(page).to have_content("question 2")
+      end
   	end
 
     describe 'the edit page' do

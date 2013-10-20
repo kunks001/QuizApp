@@ -1,0 +1,22 @@
+%button{ class: "start-quiz"}
+  Start Quiz
+
+%br
+
+.multiplayer
+
+  %h4{ class: 'result' }
+  %h5{ class: 'my-answer' }
+
+  .timer
+  - @quiz.questions.each do |question|
+
+    .question
+      %h4
+        = question.query
+
+      - question.answers.each do |answer|
+        - question_id = question.id
+        - answer_id = answer.id
+        %button{:"data-question-id" => question.id, :"data-id" => answer_id}
+          = answer.response 

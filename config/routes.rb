@@ -1,16 +1,13 @@
 QuizApp::Application.routes.draw do
-  get "multiplayer_attempts/index" => 'multiplayer_attempts#index'
+  get "multiplayer_attempts/index" => "multiplayer_attempts#index"
   get "users/new" => 'users#new'
-  # get "static_pages/home"
   root 'static_pages#home'
 
   resources :quizzes do
     resources :attempts, only: [:new, :create, :show]
     resources :multiplayer_attempts, only: [:new]
-    # resources :questions
   end
 
-  # resources :questions
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

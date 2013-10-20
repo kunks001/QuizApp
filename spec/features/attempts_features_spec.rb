@@ -1,29 +1,20 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe "Attempts" do
-# 	before do
-# 	  @quiz = Quiz.create(title: 'My quiz')
-# 	  question1 = Question.create query: 'What is the capital of the UK?',
-# 	                              answers: [Answer.create(response: 'London', correctness: true),
-# 	                                        Answer.create(response: 'Paris', correctness: false)]
-	 
-# 	  question2 = Question.create query: 'What is the capital of Australia?',
-# 	                              answers: [Answer.create(response: 'Sydney', correctness: false),
-# 	                                        Answer.create(response: 'Canberra', correctness: true)]
-	 
-# 	  @quiz.questions += [question1, question2]
-# 	end
+describe "Attempts" do
+	let(:user) { FactoryGirl.create(:user) }
+	let(:quiz) { FactoryGirl.create(:quiz, user: user) }
 
-# 	describe 'taking a quiz' do
-# 	  before do
-# 	  	visit new_quiz_attempt_path(@quiz)
+
+	context 'when taking a quiz' do
+	  before do
+	  	sign_in(user)
+	  	visit new_quiz_attempt_path(quiz)
 	 
-# 		  choose 'London'
-# 		  choose 'Sydney'
+		  choose 'correct answer'
 		 
-# 		  click_button 'Submit'
-# 		end
+		  click_button 'Submit'
+		end
 		
-# 		it { expect(page).to have_content '50%' }
-# 	end
-# end
+		it { expect(page).to have_content '100%' }
+	end
+end

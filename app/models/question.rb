@@ -6,8 +6,4 @@ class Question < ActiveRecord::Base
   def correct_answer
   	answers.select { |a| a.correctness }
   end
-
-  def a_ids
-  	answers.map { |a| a.id }
-  end
 end
