@@ -19,22 +19,19 @@ describe "QuizPages" do
       click_button "Sign in"
     end
 
-    describe 'and creating a new' do
+    describe 'creating a new quiz' do
       before do 
         visit "/quizzes/new"
-
         fill_in "quiz[title]", with: "makers_quiz"
         fill_in "quiz[questions_attributes][0][query]", with: "Why so many bugs?"
         fill_in "quiz[questions_attributes][0][answers_attributes][0][response]", with: "absolutely no idea"
         click_button "Submit"
       end
 
-      describe "quiz" do
-       	it { should have_content('Quizzes') }
-       	it { should have_content("makers_quiz") }
-      end
+      it { should have_content('Quizzes') }
+      it { should have_content("makers_quiz") }
 
-      describe "quiz's questions and answers" do
+      describe "questions and answers" do
         before { click_link "#{Quiz.last.id}" }
 
         it 'should have the correct questions and answers' do
@@ -101,7 +98,6 @@ describe "QuizPages" do
     end
 
     describe "pagination" do
-      # let(:user) { FactoryGirl.create(:user)}
 
       before(:all) do
         user = FactoryGirl.create(:user)

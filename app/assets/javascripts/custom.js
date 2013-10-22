@@ -18,24 +18,17 @@ $(function() {
 	  $(this).prev("input[type=hidden]").val("1");
 	  $(this).parent().hide();
   });
-});
 
 
-$('.hide_question').click(function(event) { 
-  event.preventDefault();        
-  $(this).next(".question").hide();
-});
+  $('.hide_question').click(function(event) { 
+    event.preventDefault();        
+    $(this).next(".question").hide();
+  });
 
-
-// $(".add_question").click(function(event){
-//   event.preventDefault(); 
-//   var q = (document).getElementsByClassName("question:first").first(); 
-//   $('#form').appendChild(q);
-// }); 
-
-$(".add_question").click(function(event){
-  event.preventDefault(); 
-  var Target = $('.question:first');
-  var CloneTarget = $(Target).clone();
-  CloneTarget.insertAfter('.question:last');
+  $(".add_question").click(function(event){
+    event.preventDefault(); 
+    var Target = $('.question:last');
+    var CloneTarget = $(Target).clone();
+    $('#questions').append(CloneTarget);
+  });
 });

@@ -2,11 +2,10 @@
   = form_for @quiz do |f|
     / = f.error_messages
     = f.text_field :title, placeholder: 'Your title here'
-
-    = f.fields_for :questions do |builder|
-      = render 'question_fields', :f => builder
-
+    #questions
+      = f.fields_for :questions do |builder|
+        = render 'question_fields', :f => builder
+  
     = link_to "Add question", "#", class: "add_question"
 
     = f.submit "Submit"
-
